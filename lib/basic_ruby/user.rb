@@ -1,5 +1,5 @@
 class User
-  attr_accessor :last_name, :birth_date
+  attr_accessor :last_name, :birth_date, :address
   attr_reader :age
   attr_writer :age
 
