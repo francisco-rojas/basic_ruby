@@ -3,6 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/francisco-rojas/basic_ruby/badges/coverage.svg)](https://codeclimate.com/github/francisco-rojas/basic_ruby/coverage)
 
 # Basic Ruby
+X Javier Brenes Redondo X
 This repo is meant to help people learning ruby the basic principles of the language.
 
 ##### Class 1 06/20/15
