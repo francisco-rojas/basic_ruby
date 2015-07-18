@@ -54,5 +54,17 @@ describe User do
 
       expect(User.all).to eq [user]
     end
+
+    it 'finds the user with the given id' do
+      user = User.new
+      user.first_name = "Jose"
+      user.save
+
+      user2 = User.new
+      user2.first_name = "Francisco"
+      user2.save
+
+      expect(User.find(user2.id)).to eq user2
+    end
   end
 end

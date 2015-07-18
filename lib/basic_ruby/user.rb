@@ -4,6 +4,18 @@ class User
   attr_writer :age
   @@users = []
 
+  def self.all
+    @@users
+  end
+
+  def self.count
+    @@users.count
+  end
+
+  def self.find(id)
+    @@users.find { |user| user.id == id }
+  end
+
   def first_name=(value)
     @first_name = value
   end
@@ -15,14 +27,6 @@ class User
   def save
     @id = @@users.count + 1
     @@users << self
-  end
-
-  def self.all
-    @@users
-  end
-
-  def self.count
-    @@users.count
   end
 
   def destroy
