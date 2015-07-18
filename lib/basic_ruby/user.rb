@@ -1,6 +1,6 @@
 class User
   attr_accessor :last_name, :birth_date, :address
-  attr_reader :age
+  attr_reader :age, :id
   attr_writer :age
   @@users = []
 
@@ -13,6 +13,7 @@ class User
   end
 
   def save
+    @id = @@users.count + 1
     @@users << self
   end
 
@@ -22,5 +23,9 @@ class User
 
   def self.count
     @@users.count
+  end
+
+  def destroy
+    @@users.delete(self)
   end
 end

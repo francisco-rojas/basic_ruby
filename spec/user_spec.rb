@@ -32,7 +32,17 @@ describe User do
       user.first_name = "Francisco"
       expect(User.count).to eq 0
       user.save
+      expect(user.id).to eq 1
       expect(User.count).to eq 1
+    end
+
+    it 'removes the user instance from the @@users array' do
+      user = User.new
+      user.first_name = "Francisco"
+      user.save
+      expect(User.count).to eq 1
+      user.destroy
+      expect(User.count).to eq 0
     end
   end
 
