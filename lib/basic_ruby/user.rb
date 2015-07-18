@@ -10,6 +10,7 @@ class User
   @@users = []
   
   def first_name=(value) 
+    
     @first_name = value
   end 
 
@@ -43,6 +44,7 @@ class User
   end
 
   def self.find_by(attribute,value)
+    return [] unless value #!value#value.nil? # value == nil unless -> haga A si B es cierto
     @@users.find_all { |user| user.send(attribute) == value }
   end
     #leer sobre activeRecords 
