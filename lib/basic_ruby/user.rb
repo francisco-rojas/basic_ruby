@@ -16,6 +16,10 @@ class User
     @@users.find { |user| user.id == id }
   end
 
+  def self.find_by(attribute, value)
+    @@users.find_all { |user| user.send(attribute) == value }
+  end
+
   def first_name=(value)
     @first_name = value
   end

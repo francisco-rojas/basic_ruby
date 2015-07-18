@@ -66,5 +66,21 @@ describe User do
 
       expect(User.find(user2.id)).to eq user2
     end
+
+    it 'finds all users with the given first_name' do
+      user = User.new
+      user.first_name = "Jose"
+      user.save
+
+      user2 = User.new
+      user2.first_name = "Francisco"
+      user2.save
+
+      user3 = User.new
+      user3.first_name = "Jose"
+      user3.save
+
+      expect(User.find_by(:first_name, "Jose")).to eq [user, user3]
+    end
   end
 end
