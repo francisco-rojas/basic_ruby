@@ -10,7 +10,7 @@ class User
   @@users = []
   
   def first_name=(value) 
-    
+
     @first_name = value
   end 
 
@@ -22,6 +22,7 @@ class User
   #en la parte de abajo de la clase
 
   def save
+    validate_first_name
     @id = @@users.count + 1
     @@users << self
   end
@@ -48,4 +49,10 @@ class User
     @@users.find_all { |user| user.send(attribute) == value }
   end
     #leer sobre activeRecords 
+  private 
+  def validate_first_name 
+    if first_name != String || first_name == "" || fist_name.delete(' ').count < 3
+      raise "Invalid value for fist name"  
+    end
+  end
 end
