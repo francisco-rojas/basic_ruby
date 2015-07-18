@@ -40,9 +40,7 @@ describe User do
       user = User.new
       user.first_name = "Francisco"
       user.save
-      expect(User.count).to eq 1
-      user.destroy
-      expect(User.count).to eq 0
+      expect { user.destroy }.to change(User, :count).by(-1)
     end
   end
 

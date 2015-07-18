@@ -17,6 +17,7 @@ class User
   end
 
   def self.find_by(attribute, value)
+    return [] unless value
     @@users.find_all { |user| user.send(attribute) == value }
   end
 
