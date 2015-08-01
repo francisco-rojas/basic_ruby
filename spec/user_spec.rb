@@ -42,6 +42,26 @@ describe User do
       user.save
       expect { user.destroy }.to change(User, :count).by(-1)
     end
+
+    it 'finds all user posts' do
+      user = User.new
+      user.first_name = "Jose"
+      user.save
+
+      user2 = User.new
+      user2.first_name = "Francisco"
+      user2.save
+
+      10.times do |i|
+        post = Post.new
+        post.title = "Post #{i}"
+        post.description = "Lorem ipsum...#{i}"
+        post.user = i.even? ? user : user2
+        post.save
+      end
+      expect(user.posts.size).to eq 5
+      expect(user2.posts.size).to eq 5
+    end
   end
 
   describe 'class methods' do

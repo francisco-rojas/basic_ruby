@@ -27,6 +27,10 @@ class User
     @@users << self
   end
 
+  def posts
+    Post.find_by(:user, self)
+  end
+
   def destroy
     @@users.delete(self)
   end
