@@ -41,7 +41,7 @@ class User
 
   private
   def validate_first_name
-    if first_name.class != String || first_name == "" || first_name.delete(' ').count < 3
+    if first_name.class != String || first_name == "" || first_name.delete(' ').size < 3
       raise "Invalid value for first_name"
     end
   end
