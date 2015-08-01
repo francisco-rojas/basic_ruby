@@ -1,7 +1,7 @@
 class User
-  attr_accessor :last_name, :birth_date, :address
-  attr_reader :age, :id
-  attr_writer :age
+  attr_accessor :first_name, :last_name, :birth_date, :address, :age
+  attr_reader :id
+
   @@users = []
 
   def self.all
@@ -19,14 +19,6 @@ class User
   def self.find_by(attribute, value)
     return [] unless value
     @@users.find_all { |user| user.send(attribute) == value }
-  end
-
-  def first_name=(value)
-    @first_name = value
-  end
-
-  def first_name
-    @first_name
   end
 
   def save
