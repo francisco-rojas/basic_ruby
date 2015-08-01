@@ -1,38 +1,22 @@
-class User
-  attr_accessor :first_name, :last_name, :birth_date, :address, :age
-  attr_reader :id
+class User < Base
+  attr_accessor :first_name,
+                :last_name,
+                :birth_date,
+                :address,
+                :age
 
   @@users = []
 
-  def self.all
+  def self.collection
     @@users
-  end
-
-  def self.count
-    @@users.count
-  end
-
-  def self.find(id)
-    @@users.find { |user| user.id == id }
-  end
-
-  def self.find_by(attribute, value)
-    return [] unless value
-    @@users.find_all { |user| user.send(attribute) == value }
-  end
-
-  def save
-    validate_first_name
-    @id = @@users.count + 1
-    @@users << self
   end
 
   def posts
     Post.find_by(:user, self)
   end
 
-  def destroy
-    @@users.delete(self)
+  def validations
+    [:validate_first_name]
   end
 
   private
