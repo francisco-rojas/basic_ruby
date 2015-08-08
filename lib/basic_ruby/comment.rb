@@ -1,4 +1,6 @@
-class Comment < Base
+class Comment
+  include Commons
+
   attr_accessor :user, :post, :text
 
   @@comments = []
