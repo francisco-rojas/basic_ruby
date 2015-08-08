@@ -1,4 +1,6 @@
-class Post < Base
+class Post
+  include Commons
+
   attr_accessor :title, :description, :user, :comments
 
   @@posts = []

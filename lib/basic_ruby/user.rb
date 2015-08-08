@@ -1,4 +1,6 @@
-class User < Base
+class User
+  include Commons
+
   attr_accessor :first_name,
                 :last_name,
                 :birth_date,
